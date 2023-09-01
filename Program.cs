@@ -107,6 +107,10 @@ void PublisherData(string publisher)
         userPublisherList = userPublisherList.Where(vg => vg.publisher.ToUpper() == publisher.ToUpper());
     }
     userPublisherPercentage = Math.Round(Convert.ToDouble(userPublisherList.Count()) / Convert.ToDouble(vgList.Count()), 4);
+    foreach (VideoGame vg in userPublisherList)
+    {
+        Console.WriteLine(vg);
+    }
     Console.WriteLine("Out of " + vgList.Count() + " games, " + userPublisherList.Count() + " have been developed by " + publisher + ", which is " + userPublisherPercentage * 100 + "%. \n");
 }
 
@@ -124,6 +128,10 @@ void GenreData(string genre)
             genre = Console.ReadLine();
         }
         userGenreList = userGenreList.Where(vg => vg.genre.ToUpper() == genre.ToUpper());
+    }
+    foreach (VideoGame vg in userGenreList)
+    {
+        Console.WriteLine(vg);
     }
     userGenrePercentage = Math.Round(Convert.ToDouble(userGenreList.Count()) / Convert.ToDouble(vgList.Count()), 4);
     Console.WriteLine("Out of " + vgList.Count() + " games, " + userGenreList.Count() + " are developed by " + genre + ", which is " + userGenrePercentage * 100 + "%. \n");
